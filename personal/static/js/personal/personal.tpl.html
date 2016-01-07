@@ -1,0 +1,90 @@
+<div layout="row" class="h-100" style="overflow-x: hidden">
+    <md-input-container flex class="buscador">
+      <label>Buscar</label>
+      <input ng-model="vm.buscador" type="text">
+      <i class="fa fa-search icon-search"></i>
+    </md-input-container>
+    <md-whiteframe class="md-whiteframe-z2 personal"  layout="column" layout-align="start">
+        <div style="margin-top:50px;" layout="row" layout "column" layout-align="space-around" ng-if="vm.loading">
+			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+		</div>
+
+        <div ng-if="!vm.loading" class="personal-list" layout="row" layout-align="start center" ng-click="vm.selectPersonal(personal)" ng-repeat="personal in vm.personal|filter:vm.buscador">
+            <i class="fa fa-user"></i>
+            <span>{{personal.primer_nombre}} {{personal.primer_apellido}}</span>
+            <i class="fa fa-chevron-right right-personal-icon"></i>
+        </div>
+
+    </md-whiteframe>
+    <md-whiteframe ng-show="vm.showPersonal" ng-class="{'slideInRight': vm.animate}" class="md-whiteframe-z2 personal-detail animated" style="padding:0px; position: relative;" layout="column" layout-align="start">
+        <div layout="column">
+            <div class="cabecera-detail" layout="column" >
+                  <md-button aria-label="Open demo menu" class="menu-detail md-icon-button" >
+                        <i class="fa fa-bars"></i>
+                  </md-button>
+                  <div class="md-whiteframe-z2 ng-hide menu-content" layout="column" >
+                        <div ng-click="vm.datosPersonales($event, vm.personalSelect)"><span>Datos Personales</span></div>
+                        <div ng-click="vm.datosAcademicos($event, vm.personalSelect)"><span>Datos Academicos</span></div>
+                        <div ng-click="vm.datosFamiliares($event, vm.personalSelect)"><span>Familiares</span></div>
+                        <div ng-click="vm.cuotas($event, vm.personalSelect)"><span>Cuotas</span></div>
+                        <div ng-click="vm.datosGremiales($event, vm.personalSelect)"><span>Datos Gremiales</span></div>
+                        <div ng-click="vm.deportes($event, vm.personalSelect)"><span>Deportes</span></div>
+                        <div ng-click="vm.eliminar($event, vm.personalSelect.id)"><span>Eliminar</span></div>
+                  </div>
+
+                <i class="fa fa-user"></i>
+                <span>{{vm.personalSelect.primer_nombre}} {{vm.personalSelect.primer_apellido}}</span>
+            </div>
+            <div class="content-detail">
+                <div layout="row" layout-align="space-around">
+                    <div layout="column" >
+                        <span class="f-bold">N° Agremiado</span>
+                        <span class="m-t-10">{{vm.personalSelect.numero_agremiado}}</span>
+                    </div>
+                    <div layout="column" >
+                        <span class="f-bold">N° cedula</span>
+                        <span class="m-t-10">{{vm.personalSelect.numero_cedula}}</span>
+                    </div>
+                </div>
+                <div layout="row" layout-align="space-around" style="margin-top: 20px;">
+                    <div layout="column" >
+                        <span class="f-bold">Fecha Nac aaaa-mm-dd</span>
+                        <span class="m-t-10">{{vm.personalSelect.fecha_nacimiento}}</span>
+                    </div>
+                    <div layout="column" >
+                        <span class="f-bold">Edo Civil</span>
+                        <span class="m-t-10">{{vm.personalSelect.estado_civil}}</span>
+                    </div>
+                    <div layout="column" >
+                        <span class="f-bold">Sexo</span>
+                        <span class="m-t-10">{{vm.personalSelect.sexo}}</span>
+                    </div>
+                </div>
+                <div layout="row" layout-align="space-around" style="margin-top: 20px;">
+                    <div layout="column" >
+                        <span class="f-bold">Dirección</span>
+                        <span class="m-t-10">{{vm.personalSelect.direccion}}</span>
+                    </div>
+
+                </div>
+                <div layout="row" layout-align="space-around" style="margin-top: 20px;">
+                    <div layout="column" >
+                        <span class="f-bold">Telefono</span>
+                        <span class="m-t-10">{{vm.personalSelect.telefono_habitacion}}</span>
+                    </div>
+                    <div layout="column" >
+                        <span class="f-bold">Celular</span>
+                        <span class="m-t-10">{{vm.personalSelect.celular}}</span>
+                    </div>
+                    <div layout="column" >
+                        <span class="f-bold">Email</span>
+                        <span class="m-t-10">{{vm.personalSelect.email}}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </md-whiteframe>
+
+
+</div>

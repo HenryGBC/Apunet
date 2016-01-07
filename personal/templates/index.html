@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="apunetApp">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/angular-material.min.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/app.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/overwrite.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/animate.css">
+    <title>APUNET</title>
+
+</head>
+<body ng-controller="AppController as vm">
+
+{% if request.user.is_authenticated %}
+    {% verbatim %}
+    <div layout="row" layout-align="space-between">
+        <h1 class="titulo">Apunet Sistema</h1>
+        <div class="add-personal" ng-click="vm.datosPersonales($event)">
+            <i class="fa fa-user-plus"></i>
+        </div>
+
+    </div>
+    <apunet-personal></apunet-personal>
+    {% endverbatim %}
+{% else %}
+    <md-whiteframe class="md-whiteframe-z3 login" layout layout-align="center center">
+
+        <form action="/" name="login" method="post">
+            {% csrf_token  %}
+            <div layout="column">
+                <span>Login </span>
+                <md-input-container flex>
+                    <label class="color-primary">Username</label>
+                    <input type="text" name="username">
+                </md-input-container>
+                <md-input-container flex>
+                    <label class="color-primary">Password</label>
+                    <input name="password" type="password">
+                </md-input-container>
+                <input type="submit" class="md-button md-raised md-primary" value="iniciar" />
+            </div>
+        </form>
+    </md-whiteframe>
+{% endif %}
+
+ <!-- Angular Material Dependencies -->
+    <script src="{{STATIC_URL}}vendor/jquery-1.11.3.min.js"></script>
+    <script src="{{STATIC_URL}}vendor/angular.min.js"></script>
+    <script src="{{STATIC_URL}}vendor/angular-animate.min.js"></script>
+    <script src="{{STATIC_URL}}vendor/angular-aria.min.js"></script>
+
+ <!-- Angular Material Javascript now available via Google CDN; version 0.10 used here -->
+    <script src="{{STATIC_URL}}vendor/angular-material.min.js"></script>
+
+
+ <!-- Scripts -->
+
+    <script src="{{STATIC_URL}}js/app.js"></script>
+    <script src="{{STATIC_URL}}js/constants.js"></script>
+    <script src="{{STATIC_URL}}js/personal/personal.js"></script>
+    <script src="{{STATIC_URL}}js/personal/personal.service.js"></script>
+    <script src="{{STATIC_URL}}js/personal/personal.directive.js"></script>
+    <script src="{{STATIC_URL}}js/datos-personales/datos-personales.js"></script>
+    <script src="{{STATIC_URL}}js/datos-personales/datos-personales.controller.js"></script>
+    <script src="{{STATIC_URL}}js/datos-personales/datos-academicos.controller.js"></script>
+    <script src="{{STATIC_URL}}js/datos-personales/familiares.controller.js"></script>
+    <script src="{{STATIC_URL}}js/datos-personales/cuotas.controller.js"></script>
+    <script src="{{STATIC_URL}}js/datos-personales/datos-gremiales.controller.js"></script>
+    <script src="{{STATIC_URL}}js/datos-personales/deportes.controller.js"></script>
+
+</body>
+</html>

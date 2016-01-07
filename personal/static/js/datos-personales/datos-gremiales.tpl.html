@@ -1,0 +1,60 @@
+<md-dialog aria-label="SetNote form" style="width:900px;">
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2 class="color-white" layout="row" layout-align="start center">
+				<span>Datos Gremiales</span>
+			</h2>
+			<span flex></span>
+			<md-button aria-label="close" class="md-icon-button" ng-click="vm.cancel()">
+				<i class="fa fa-times close-modal"></i>
+			</md-button>
+		</div>
+	</md-toolbar>
+	<md-dialog-content  style="height:300px;">
+		<div layout="row" style="margin-top:100px;" layout "column" layout-align="space-around" ng-if="vm.loading">
+			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+		</div>
+        <div layout="row" ng-if="!vm.loading" layout-align="space-between">
+			<md-whiteframe class="md-whiteframe-z2 cargos-container"  layout="column" layout-align="start">
+		        <div style="margin-top:50px;" layout="row" layout "column" layout-align="space-around" ng-if="vm.loadingFamiliar">
+					<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+				</div>
+		        <div ng-if="!vm.loading" class="familiar-list" layout="row" layout-align="start center" ng-click="vm.selectCargo(cargo)" ng-repeat="cargo in vm.cargos">
+		            <i style="margin-right:5px" class="fa fa-user"></i>
+		            <span>{{cargo.cargo}}</span>
+		            <i class="fa fa-chevron-right right-personal-icon"></i>
+
+		        </div>
+				<div ng-if="vm.cargos.length==0" class="familiar-list" layout="row" layout-align="center center" >
+		            <span>No tienes cargos agregados</span>
+		        </div>
+
+		    </md-whiteframe>
+			<md-whiteframe class="md-whiteframe-z2 form-familiar"  layout="column" layout-align="start">
+				<i class="fa fa-times icon-delete-familiar" ng-show="vm.showDelete" ng-click="vm.deleteCargo(vm.dataCargo.id); "></i>
+				<div layout="row" layout-align="space-around">
+	                <md-input-container flex>
+	                  <label>Cargo</label>
+	                  <input ng-model="vm.dataCargo.cargo" type="text">
+	                </md-input-container>
+	            </div>
+                <div layout="row" layout-align="space-around">
+	                <md-input-container flex>
+	                  <label>Periodo</label>
+	                  <input ng-model="vm.dataCargo.periodo" type="text">
+	                </md-input-container>
+	            </div>
+
+
+
+			    <div class="md-actions" layout="row" layout-align="space-around">
+					<md-progress-linear md-mode="indeterminate" ng-if="vm.processing"></md-progress-linear>
+					<md-button class="md-raised " ng-click="vm.limpiar()">Limpiar</md-button>
+					<md-button class="md-raised md-primary" ng-click="vm.guardar()">Guardar</md-button>
+				</div>
+		    </md-whiteframe>
+
+
+        </div>
+	</md-dialog-content>
+</md-dialog>

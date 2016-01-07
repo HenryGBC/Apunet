@@ -1,0 +1,119 @@
+<md-dialog aria-label="SetNote form" style="width:900px;">
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2 class="color-white" layout="row" layout-align="start center">
+				<span>Datos Familiares</span>
+			</h2>
+			<span flex></span>
+			<md-button aria-label="close" class="md-icon-button" ng-click="vm.cancel()">
+				<i class="fa fa-times close-modal"></i>
+			</md-button>
+		</div>
+	</md-toolbar>
+	<md-dialog-content  style="height:600px;">
+		<div layout="row" style="margin-top:100px;" layout "column" layout-align="space-around" ng-if="vm.loading">
+			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+		</div>
+        <div layout="row" ng-if="!vm.loading" layout-align="space-between">
+			<md-whiteframe class="md-whiteframe-z2 familiar-container"  layout="column" layout-align="start">
+		        <div style="margin-top:50px;" layout="row" layout "column" layout-align="space-around" ng-if="vm.loadingFamiliar">
+					<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+				</div>
+		        <div ng-if="!vm.loading" class="familiar-list" layout="row" layout-align="start center" ng-click="vm.selectFamiliar(familiar)" ng-repeat="familiar in vm.familiares">
+		            <i style="margin-right:5px" class="fa fa-user"></i>
+		            <span>{{familiar.nombres}} {{familiar.parentesco}}</span>
+		            <i class="fa fa-chevron-right right-personal-icon"></i>
+
+		        </div>
+				<div ng-if="vm.familiares.length==0" class="familiar-list" layout="row" layout-align="center center" >
+		            <span>No tienes familiares agregados</span>
+		        </div>
+
+		    </md-whiteframe>
+			<md-whiteframe class="md-whiteframe-z2 form-familiar"  layout="column" layout-align="start">
+				<i class="fa fa-times icon-delete-familiar" ng-show="vm.showDelete" ng-click="vm.deleteFamiliar(vm.dataFamiliar.id); "></i>
+				<div layout="row" layout-align="space-around">
+	                <md-input-container flex>
+	                  <label>Parentesco</label>
+	                  <input ng-model="vm.dataFamiliar.parentesco" type="text">
+	                </md-input-container>
+	                <md-input-container flex>
+	                  <label>Carnet</label>
+	                  <input ng-model="vm.dataFamiliar.carnet" type="text">
+	                </md-input-container>
+					<md-input-container flex>
+	                  <label>Cedula</label>
+	                  <input ng-model="vm.dataFamiliar.cedula" type="text">
+	                </md-input-container>
+
+	            </div>
+				<div layout="row" layout-align="space-around">
+	                <md-input-container flex>
+	                  <label>Nombres</label>
+	                  <input ng-model="vm.dataFamiliar.nombres" type="text">
+	                </md-input-container>
+	                <md-input-container flex>
+	                  <label>Apellidos</label>
+	                  <input ng-model="vm.dataFamiliar.apellidos" type="text">
+	                </md-input-container>
+					<md-input-container>
+						<label>Edad</label>
+						<input ng-model="vm.dataFamiliar.edad" type="text">
+					</md-input-container>
+	            </div>
+				<div layout="row" layout-align="space-around">
+					<span style="padding-top: 30px;">Fecha Nacimiento</span>
+	                  <md-input-container>
+	                      <label>Año</label>
+	                      <md-select ng-model="vm.anio">
+	                        <md-option ng-repeat="a in vm.anios" value="{{a}}">{{a}}</md-option>
+	                      </md-select>
+	                </md-input-container>
+					<md-input-container>
+						<label>Mes</label>
+						<md-select ng-model="vm.mes">
+						<md-option ng-repeat="m in vm.meses" value="{{m}}">{{m}}</md-option>
+						</md-select>
+				</md-input-container>
+					<md-input-container>
+						<label>Dia</label>
+						<md-select ng-model="vm.dia">
+						<md-option ng-repeat="d in vm.dias" value="{{d}}">{{d}}</md-option>
+						</md-select>
+				</md-input-container>
+
+	            </div>
+
+				<div layout="row" layout-align="space-around">
+	                <md-input-container flex>
+	                  <label>Telefono</label>
+	                  <input ng-model="vm.dataFamiliar.telefono" type="text">
+	                </md-input-container>
+	                <md-input-container flex>
+						<md-checkbox ng-model="vm.dataFamiliar.trabajador_unet" aria-label="Checkbox 1">
+				          Trabajador UNET
+				        </md-checkbox>
+	                </md-input-container>
+					<md-input-container flex>
+						<md-checkbox ng-model="vm.dataFamiliar.ayuda_academica" aria-label="Checkbox 1">
+				         Ayuda Academica
+				        </md-checkbox>
+	                </md-input-container>
+					<md-input-container flex>
+	                  <label>Nivel de Educacion</label>
+	                  <input ng-model="vm.dataFamiliar.nivel_educacion" type="text">
+	                </md-input-container>
+
+	            </div>
+
+			    <div class="md-actions" layout="row" layout-align="space-around">
+					<md-progress-linear md-mode="indeterminate" ng-if="vm.processing"></md-progress-linear>
+					<md-button class="md-raised " ng-click="vm.limpiar()">Limpiar</md-button>
+					<md-button class="md-raised md-primary" ng-click="vm.guardar()">Guardar</md-button>
+				</div>
+		    </md-whiteframe>
+
+
+        </div>
+	</md-dialog-content>
+</md-dialog>

@@ -1,0 +1,114 @@
+<md-dialog aria-label="SetNote form" style="width:600px;">
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2 class="color-white" layout="row" layout-align="start center">
+				<span>Datos Personales</span>
+			</h2>
+			<span flex></span>
+			<md-button aria-label="close" class="md-icon-button" ng-click="vm.cancel()">
+				<i class="fa fa-times close-modal"></i>
+			</md-button>
+		</div>
+	</md-toolbar>
+	<md-dialog-content  style="height:500px;">
+		<div layout="row" style="margin-top:100px;" layout "column" layout-align="space-around" ng-if="vm.loading">
+			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+		</div>
+        <div layout="column" ng-if="!vm.loading">
+
+            <div layout="row" layout-align="space-around">
+                <md-input-container flex>
+                  <label>Numero Agremiado</label>
+                  <input required ng-model="vm.dataPersonal.numero_agremiado" type="text">
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Numero Cedula</label>
+                  <input ng-model="vm.dataPersonal.numero_cedula" type="text">
+                </md-input-container>
+            </div>
+            <div layout="row" layout-align="space-around">
+                <md-input-container flex>
+                  <label>Primer Nombre</label>
+                  <input ng-model="vm.dataPersonal.primer_nombre" type="text">
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Segundo Nombre</label>
+                  <input ng-model="vm.dataPersonal.segundo_nombre" type="text">
+                </md-input-container>
+
+            </div>
+			<div layout="row" layout-align="space-around">
+                <md-input-container flex>
+                  <label>Primer Apellido</label>
+                  <input ng-model="vm.dataPersonal.primer_apellido" type="text">
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Segundo Apellido</label>
+                  <input ng-model="vm.dataPersonal.segundo_apellido" type="text">
+                </md-input-container>
+
+            </div>
+			<div layout="row" layout-align="space-around">
+				<span style="padding-top: 30px;">Fecha Nacimiento</span>
+                  <md-input-container>
+                      <label>Año</label>
+                      <md-select ng-model="vm.anio">
+                        <md-option ng-repeat="a in vm.anios" value="{{a}}">{{a}}</md-option>
+                      </md-select>
+                </md-input-container>
+				<md-input-container>
+					<label>Mes</label>
+					<md-select ng-model="vm.mes">
+					<md-option ng-repeat="m in vm.meses" value="{{m}}">{{m}}</md-option>
+					</md-select>
+			</md-input-container>
+				<md-input-container>
+					<label>Dia</label>
+					<md-select ng-model="vm.dia">
+					<md-option ng-repeat="d in vm.dias" value="{{d}}">{{d}}</md-option>
+					</md-select>
+			</md-input-container>
+            </div>
+            <div layout="row" layout-align="space-around">
+				<md-input-container flex>
+                  <label>Email</label>
+                  <input type="email" ng-model="vm.dataPersonal.email" type="text">
+                </md-input-container>
+                <md-input-container>
+                    <label>Estado Civil</label>
+                    <md-select ng-model="vm.dataPersonal.estado_civil">
+                      <md-option ng-repeat="edo in vm.edoCivil" value="{{edo}}">{{edo}}</md-option>
+                    </md-select>
+                  </md-input-container>
+                  <md-input-container>
+                      <label>Sexo</label>
+                      <md-select ng-model="vm.dataPersonal.sexo">
+                        <md-option ng-repeat="s in vm.sexo" value="{{s}}">{{s}}</md-option>
+                      </md-select>
+                </md-input-container>
+            </div>
+			<div layout="row" layout-align="space-around">
+                <md-input-container flex>
+                  <label>Dirección</label>
+                  <input ng-model="vm.dataPersonal.direccion" type="text">
+                </md-input-container>
+            </div>
+			<div layout="row" layout-align="space-around">
+				<md-input-container flex>
+                  <label>Telefono Hab</label>
+                  <input ng-model="vm.dataPersonal.telefono_habitacion" type="text">
+                </md-input-container>
+				<md-input-container flex>
+                  <label>Celular</label>
+                  <input ng-model="vm.dataPersonal.celular" type="text">
+                </md-input-container>
+
+            </div>
+        </div>
+	</md-dialog-content>
+    <div class="md-actions" layout="row" layout-align="space-around">
+		<md-progress-linear md-mode="indeterminate" ng-if="vm.processing"></md-progress-linear>
+		<md-button class="md-raised " ng-click="vm.cancel()">Cancelar</md-button>
+		<md-button class="md-raised md-primary" ng-click="vm.guardar()">Guardar</md-button>
+	</div>
+</md-dialog>

@@ -1,0 +1,173 @@
+<md-dialog aria-label="SetNote form" style="width:600px;">
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2 class="color-white" layout="row" layout-align="start center">
+				<span>Datos Academicos</span>
+			</h2>
+			<span flex></span>
+			<md-button aria-label="close" class="md-icon-button" ng-click="vm.cancel()">
+				<i class="fa fa-times close-modal"></i>
+			</md-button>
+		</div>
+	</md-toolbar>
+	<md-dialog-content  style="height:600px;">
+		<div layout="row" style="margin-top:100px;" layout "column" layout-align="space-around" ng-if="vm.loading">
+			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+		</div>
+        <div layout="column" ng-if="!vm.loading">
+
+            <div layout="row" layout-align="space-around">
+                <md-input-container flex>
+                  <label>Profesión</label>
+                  <input required ng-model="vm.dataAcad.profesion" type="text">
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Especialidad</label>
+                  <input ng-model="vm.dataAcad.especialidad" type="text">
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Resolución</label>
+                  <input ng-model="vm.dataAcad.resolucion" type="text">
+                </md-input-container>
+            </div>
+            <div layout="row" layout-align="space-around">
+                <md-input-container flex>
+                  <label>Departamento</label>
+                  <input ng-model="vm.dataAcad.departamento" type="text">
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Telefono Trabajo</label>
+                  <input ng-model="vm.dataAcad.telefono_trabajo" type="text">
+                </md-input-container>
+
+            </div>
+			<div layout="row" layout-align="space-around">
+				<span class="fecha-input">Fecha Ingreso</span>
+                <md-input-container flex>
+                  <label>Año</label>
+                  <input style="width:100px;" ng-model="vm.anioIngreso" type="text">
+                </md-input-container>
+				<md-input-container>
+					<label>Mes</label>
+					<md-select ng-model="vm.mesIngreso">
+					<md-option ng-repeat="m in vm.meses" value="{{m}}">{{m}}</md-option>
+					</md-select>
+			    </md-input-container>
+				<md-input-container>
+					<label>Dia</label>
+					<md-select ng-model="vm.diaIngreso">
+					<md-option ng-repeat="d in vm.dias" value="{{d}}">{{d}}</md-option>
+					</md-select>
+			    </md-input-container>
+            </div>
+            <div layout="row" layout-align="space-around">
+				<span class="fecha-input">Fecha Retiro</span>
+                <md-input-container flex>
+                  <label>Año</label>
+                  <input style="width:100px;" ng-model="vm.anioRetiro" type="text">
+                </md-input-container>
+				<md-input-container>
+					<label>Mes</label>
+					<md-select ng-model="vm.mesRetiro">
+					<md-option ng-repeat="m in vm.meses" value="{{m}}">{{m}}</md-option>
+					</md-select>
+			    </md-input-container>
+				<md-input-container>
+					<label>Dia</label>
+					<md-select ng-model="vm.diaRetiro">
+					<md-option ng-repeat="d in vm.dias" value="{{d}}">{{d}}</md-option>
+					</md-select>
+			    </md-input-container>
+            </div>
+            <div layout="row" layout-align="space-around">
+				<span class="fecha-input">Fecha Jubilación</span>
+                <md-input-container flex>
+                  <label>Año</label>
+                  <input style="width:100px;" ng-model="vm.anioJub" type="text">
+                </md-input-container>
+				<md-input-container>
+					<label>Mes</label>
+					<md-select ng-model="vm.mesJub">
+					<md-option ng-repeat="m in vm.meses" value="{{m}}">{{m}}</md-option>
+					</md-select>
+			    </md-input-container>
+				<md-input-container>
+					<label>Dia</label>
+					<md-select ng-model="vm.diaJub">
+					<md-option ng-repeat="d in vm.dias" value="{{d}}">{{d}}</md-option>
+					</md-select>
+			    </md-input-container>
+            </div>
+            <div layout="row" layout-align="space-around">
+				<span class="fecha-input">Fecha Cambio Dedicación</span>
+                <md-input-container flex>
+                  <label>Año</label>
+                  <input style="width:100px;" ng-model="vm.anioCD" type="text">
+                </md-input-container>
+				<md-input-container>
+					<label>Mes</label>
+					<md-select ng-model="vm.mesCD">
+					<md-option ng-repeat="m in vm.meses" value="{{m}}">{{m}}</md-option>
+					</md-select>
+			    </md-input-container>
+				<md-input-container>
+					<label>Dia</label>
+					<md-select ng-model="vm.diaCD">
+					<md-option ng-repeat="d in vm.dias" value="{{d}}">{{d}}</md-option>
+					</md-select>
+			    </md-input-container>
+            </div>
+            <div layout="row" layout-align="space-around">
+				<span class="fecha-input">Fecha Ascenso</span>
+                <md-input-container flex>
+                  <label>Año</label>
+                  <input style="width:100px;" ng-model="vm.anioAsc" type="text">
+                </md-input-container>
+				<md-input-container>
+					<label>Mes</label>
+					<md-select ng-model="vm.mesAsc">
+					<md-option ng-repeat="m in vm.meses" value="{{m}}">{{m}}</md-option>
+					</md-select>
+			    </md-input-container>
+				<md-input-container>
+					<label>Dia</label>
+					<md-select ng-model="vm.diaAsc">
+					<md-option ng-repeat="d in vm.dias" value="{{d}}">{{d}}</md-option>
+					</md-select>
+			    </md-input-container>
+            </div>
+            <div layout="row" layout-align="space-around">
+                <md-input-container>
+                    <label>Condicion Uno</label>
+                    <md-select ng-model="vm.dataAcad.condicion_uno">
+                      <md-option ng-repeat="c in vm.condicionUno" value="{{c}}">{{c}}</md-option>
+                    </md-select>
+                  </md-input-container>
+                  <md-input-container>
+                      <label>Categoria</label>
+                      <md-select ng-model="vm.dataAcad.condicion_dos">
+                        <md-option ng-repeat="c in vm.condicionDos" value="{{c}}">{{c}}</md-option>
+                      </md-select>
+                </md-input-container>
+                <md-input-container>
+                    <label>Dedicación</label>
+                    <md-select ng-model="vm.dataAcad.condicion_tres">
+                      <md-option ng-repeat="c in vm.condicionTres" value="{{c}}">{{c}}</md-option>
+                    </md-select>
+                  </md-input-container>
+                  <md-input-container>
+                      <label>Condicion Cuatro</label>
+                      <md-select ng-model="vm.dataAcad.condicion_cuatro">
+                        <md-option ng-repeat="c in vm.condicionCuatro" value="{{c}}">{{c}}</md-option>
+                      </md-select>
+                    </md-input-container>
+            </div>
+
+        </div>
+	</md-dialog-content>
+    <div class="md-actions" layout="row" layout-align="space-around">
+		<md-progress-linear md-mode="indeterminate" ng-if="vm.processing"></md-progress-linear>
+		<md-button class="md-raised " ng-click="vm.cancel()">Cancelar</md-button>
+		<md-button class="md-raised md-primary" ng-click="vm.guardar()">Guardar</md-button>
+	</div>
+</md-dialog>

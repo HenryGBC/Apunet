@@ -1,0 +1,192 @@
+.login{
+    width: 360px;
+    margin: 0 auto;
+    margin-top: 190px;
+    padding: 30px;
+}
+.login span{
+    color: rgb(63,81,181);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.color-primary{
+    color: rgb(63,81,181) !important;
+}
+.w-100{
+    width: 100%;
+}
+.w-50{
+    width: 50%;
+}
+.h-100{
+    height: 100%;
+}
+.f-bold{
+    font-weight: bold;
+}
+.m-t-10{
+    margin-top: 10px;
+}
+.buscador{
+    position: absolute;
+    width: 500px;
+    top: 35px;
+    left: 21px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.personal{
+    padding: 10px;
+    width: 500px;
+    height: 90%;
+    overflow-y: auto;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.personal-list{
+    padding-left: 10px;
+    height: 50px;
+    border-bottom: 1px solid #E8E5E5;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+.personal-list i{
+    margin-right: 10px;
+    color: gainsboro;
+}
+.personal-list span{
+    font-size: 18px;
+    width: 410px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.delete-personal{
+    color: red;
+    font-size: 18px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+
+.add-personal{
+    cursor: pointer;
+    font-size: 50px;
+    padding-top: 15px;
+    padding-right: 40px;
+    color: rgba(45, 173, 45, 0.76);
+}
+.close-modal{
+    color: white;
+    font-size: 18px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.cabecera-detail{
+    background-color: rgb(63,81,181);
+    padding: 40px;
+    color: white;
+    text-align: center;
+}
+.cabecera-detail i{
+    font-size: 50px;
+}
+
+.cabecera-detail span{
+    font-size: 25px;
+    margin-top: 15px;
+}
+.menu-detail{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.menu-detail i{
+    font-size: 25px;
+}
+.content-detail{
+    padding: 20px;
+}
+
+.menu-content{
+    position: absolute;
+    top: 5px;
+    background: white;
+    color: black;
+    padding: 10px;
+    text-align: left;
+    right: 18px;
+}
+.menu-content span{
+    font-size: 16px;
+}
+.menu-content div{
+    padding: 10px;
+    border-bottom: 1px solid rgba(222, 222, 222, 0.77);
+    cursor: pointer;
+}
+
+.fecha-input{
+    padding-top: 30px;
+    width: 267px;
+}
+
+.form-familiar{
+    width: 590px;
+    padding: 10px;
+}
+
+.familiar-container{
+    width: 240px;
+    overflow-y: auto;
+    padding: 10px;
+    height: 396px;
+}
+
+.cargos-container{
+    width: 240px;
+    overflow-y: auto;
+    padding: 10px;
+    height: 280px;
+}
+
+
+.familiar-list{
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #E8E5E5;
+}
+.familiar-list span{
+    width: 200px;
+}
+
+.icon-delete-familiar{
+    font-size: 20px;
+text-align: right;
+color: red;
+cursor: pointer;
+}
+
+.titulo{
+    width: 80%;
+text-align: center;
+}
+.personal-detail {
+    padding: 10px;
+    width: 500px;
+    min-width:500px;
+    height: 90%;
+    overflow-y: auto;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.icon-search{
+    position: absolute;
+    right: 0px;
+    top: 30px;
+    color: #E8E5E5;
+}
